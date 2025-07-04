@@ -15,6 +15,8 @@ yaml
 Copy
 Edit
 
+---
+
 ## 🚀 Key Features
 
 ### 👤 User
@@ -32,6 +34,8 @@ Edit
 - Platform-wide dashboard and analytics  
 - Manage users, jobs, and content  
 - Moderate resumes and job postings  
+
+---
 
 ## 🖼️ Frontend Stack
 
@@ -51,6 +55,8 @@ Edit
 - Animated transitions and modals  
 - Dark mode-ready  
 
+---
+
 ## ⚙️ Backend Stack
 
 - Node.js  
@@ -64,11 +70,15 @@ Edit
 - cookie-parser  
 - CORS  
 
+---
+
 ## 🛠️ Getting Started Locally
 
 ### 📦 Prerequisites
 - Node.js ≥ 18  
 - MongoDB (local or Atlas)
+
+---
 
 ### 🔧 Install Dependencies
 
@@ -80,17 +90,15 @@ npm install
 cd ../job-finder-backend
 npm install
 🚀 Run the Application
-
 # Start the frontend
 cd job-finder-frontend
 npm start
-
 # Start the backend
 cd job-finder-backend
 npm run dev
 Ensure .env files are properly configured for both frontend and backend.
 
-# 🔐 Environment Variables
+🔐 Environment Variables
 Backend .env
 PORT=5000
 MONGO_URI=mongodb://localhost:27017/jobFinderDB
@@ -101,7 +109,7 @@ NODE_ENV=development
 Frontend .env
 REACT_APP_API_URL=http://localhost:5000
 
-# 🗃️ Folder Structure
+🗃️ Folder Structure
 job-finder-backend/
 ├── config/
 ├── controllers/
@@ -125,13 +133,14 @@ job-finder-frontend/
     ├── utils/
     └── App.js
 
-# 👨‍💻 Author
+👨‍💻 Author
 Chandan Dakka
 GitHub Profile
 
-# 📄 License
+📄 License
 This project is licensed under the ISC License.
 
-# 🤝 Contributing
+🤝 Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 Make sure to lint and test your code before submitting.
+
