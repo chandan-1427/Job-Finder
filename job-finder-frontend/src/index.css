@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import Open Sans from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+/* Fade-in Animation (Fallback if not using tailwind.config.js) */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Global body styles */
+body {
+  margin: 0;
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f9fafb; /* Light background */
+  color: #333; /* Readable text */
+  line-height: 1.6;
+  padding-top: 80px; /* navbar space */
+}
+
+/* Code blocks styling */
+code {
+  font-family: 'Source Code Pro', Menlo, Monaco, Consolas, 'Courier New', monospace;
+  background-color: #f3f4f6;
+  padding: 0.15em 0.3em;
+  border-radius: 4px;
+  font-size: 0.95em;
+  color: #e11d48; /* rose-600 */
+}
+
+/* Restrict elegant link styling to content paragraphs only */
+p a,
+.prose a {
+  color: #4f46e5; /* Indigo-600 */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+p a:hover,
+.prose a:hover,
+p a:focus,
+.prose a:focus {
+  color: #4338ca; /* Indigo-700 */
+  outline: none;
+  text-decoration: underline;
+}
+
+/* Button defaults */
+button {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 9999px;
+}
+
+/* Smooth shadows */
+.shadow-md {
+  box-shadow: 0 4px 6px rgb(0 0 0 / 0.1);
+}
+.shadow-xl {
+  box-shadow: 0 10px 15px rgb(0 0 0 / 0.15);
+}
+
+/* Rounded corners */
+.rounded-2xl {
+  border-radius: 1rem;
+}
+.rounded-3xl {
+  border-radius: 1.5rem;
+}

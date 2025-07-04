@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dynamic Resume Template</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 0 24px;
+      background-color: #fdfdfd;
+      color: #212121;
+      line-height: 1.6;
+    }
+
+    h1 {
+      font-size: 36px;
+      color: #0d47a1;
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    h2 {
+      font-size: 20px;
+      color: #1a237e;
+      border-bottom: 2px solid #bbdefb;
+      padding-bottom: 4px;
+      margin-top: 40px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    p, ul {
+      font-size: 15.5px;
+      margin-bottom: 16px;
+    }
+
+    ul {
+      list-style-type: disc;
+      margin-left: 30px;
+    }
+
+    .header-info {
+      font-size: 15px;
+      margin-bottom: 25px;
+      color: #424242;
+    }
+
+    a {
+      color: #0d47a1;
+      text-decoration: none;
+    }
+
+    a:hover, a:focus {
+      text-decoration: underline;
+      outline: none;
+    }
+
+    .project-summary {
+      font-style: italic;
+      color: #455a64;
+    }
+
+    strong {
+      color: #1b1b1b;
+    }
+
+    em {
+      font-style: normal;
+      color: #616161;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        margin: 20px 12px;
+        padding: 0 12px;
+      }
+      h1 {
+        font-size: 28px;
+      }
+      h2 {
+        font-size: 18px;
+      }
+      p, ul {
+        font-size: 14px;
+      }
+    }
+
+    @media print {
+      body {
+        margin: 0.5in;
+        color: #000;
+        background: #fff;
+      }
+      a[href]:after {
+        content: " (" attr(href) ")";
+        font-size: 90%;
+        color: #555;
+      }
+      nav, button, .header-info > a[href] {
+        /* Hide interactive elements in print */
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header role="banner">
+    <h1 id="name-heading">{{name}}</h1>
+    <p class="header-info" aria-label="Contact Information">
+      📧 Email: 
+      <a href="mailto:{{email}}" id="email-link" aria-describedby="name-heading">{{email}}</a> |
+      📞 Phone: <span>{{phone}}</span> |
+      🔗 LinkedIn: 
+      <a href="https://{{linkedin}}" target="_blank" rel="noopener noreferrer">{{linkedin}}</a>
+      {{#if github}} | 💻 GitHub: <a href="https://{{github}}" target="_blank" rel="noopener noreferrer">{{github}}</a>{{/if}}
+      {{#if portfolio}} | 🌐 Portfolio: <a href="https://{{portfolio}}" target="_blank" rel="noopener noreferrer">{{portfolio}}</a>{{/if}}
+    </p>
+  </header>
+
+  {{#if summary}}
+  <section aria-labelledby="summary-heading">
+    <h2 id="summary-heading">Professional Summary</h2>
+    <p>{{summary}}</p>
+  </section>
+  {{/if}}
+
+  {{#if categories}}
+  {{#each categories}}
+    {{#if this.skills}}
+    <section aria-labelledby="{{this.title}}-skills-heading">
+      <h2 id="{{this.title}}-skills-heading">{{this.title}} Skills</h2>
+      <ul>
+        {{#each this.skills}}
+          <li>{{this}}</li>
+        {{/each}}
+      </ul>
+    </section>
+    {{/if}}
+  {{/each}}
+  {{/if}}
+
+  {{#if experience}}
+  <section aria-labelledby="experience-heading">
+    <h2 id="experience-heading">Work Experience</h2>
+    <ul>
+      {{#each experience}}
+        <li>
+          <strong>{{title}}</strong>, {{company}}<br/>
+          <em>{{years}}</em><br/>
+          <p>{{description}}</p>
+        </li>
+      {{/each}}
+    </ul>
+  </section>
+  {{/if}}
+
+  {{#if projects}}
+  <section aria-labelledby="projects-heading">
+    <h2 id="projects-heading">Key Projects</h2>
+    <ul>
+      {{#each projects}}
+        <li>
+          <strong>{{name}}</strong>: 
+          <span class="project-summary">{{summary}}</span>
+          {{#if link}} [<a href="{{link}}" target="_blank" rel="noopener noreferrer">View Project</a>]{{/if}}
+        </li>
+      {{/each}}
+    </ul>
+  </section>
+  {{/if}}
+
+  {{#if education}}
+  <section aria-labelledby="education-heading">
+    <h2 id="education-heading">Education</h2>
+    <ul>
+      {{#each education}}
+        <li><strong>{{degree}}</strong>, {{institution}} ({{year}})</li>
+      {{/each}}
+    </ul>
+  </section>
+  {{/if}}
+
+  {{#if certifications}}
+  <section aria-labelledby="certifications-heading">
+    <h2 id="certifications-heading">Certifications</h2>
+    <ul>
+      {{#each certifications}}
+        <li>{{title}} - {{issuer}} ({{year}})</li>
+      {{/each}}
+    </ul>
+  </section>
+  {{/if}}
+
+  {{#if links}}
+  <section aria-labelledby="links-heading">
+    <h2 id="links-heading">Useful Links</h2>
+    <ul>
+      {{#each links}}
+        <li><a href="{{url}}" target="_blank" rel="noopener noreferrer">{{label}}</a></li>
+      {{/each}}
+    </ul>
+  </section>
+  {{/if}}
+
+  {{#if languages}}
+  <section aria-labelledby="languages-heading">
+    <h2 id="languages-heading">Languages</h2>
+    <ul>
+      {{#each languages}}
+        <li>{{this}}</li>
+      {{/each}}
+    </ul>
+  </section>
+  {{/if}}
+
+  {{#if interests}}
+  <section aria-labelledby="interests-heading">
+    <h2 id="interests-heading">Interests</h2>
+    <ul>
+      {{#each interests}}
+        <li>{{this}}</li>
+      {{/each}}
+    </ul>
+  </section>
+  {{/if}}
+
+  <script>
+    window.isUserLoggedIn = {{#if isUserLoggedIn}}true{{else}}false{{/if}};
+    const emailLink = document.getElementById("email-link");
+    if (emailLink) {
+      emailLink.addEventListener("click", function (event) {
+        event.preventDefault();
+        const email = this.textContent.trim();
+        if (window.isUserLoggedIn) {
+          window.location.href = `mailto:${email}`;
+        } else {
+          const confirmLogin = confirm("You must be logged in to send a message. Do you want to login now?");
+          if (confirmLogin) {
+            window.location.href = "/login";
+          }
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
