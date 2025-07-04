@@ -82,6 +82,7 @@ Edit
 
 ### 🔧 Install Dependencies
 
+```bash
 # Frontend
 cd job-finder-frontend
 npm install
@@ -89,10 +90,12 @@ npm install
 # Backend
 cd ../job-finder-backend
 npm install
+
 🚀 Run the Application
 # Start the frontend
 cd job-finder-frontend
 npm start
+
 # Start the backend
 cd job-finder-backend
 npm run dev
@@ -110,6 +113,9 @@ Frontend .env
 REACT_APP_API_URL=http://localhost:5000
 
 🗃️ Folder Structure
+bash
+Copy
+Edit
 job-finder-backend/
 ├── config/
 ├── controllers/
@@ -144,3 +150,6 @@ This project is licensed under the ISC License.
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 Make sure to lint and test your code before submitting.
 
+Let me know if you'd like:
+- Deployment instructions (for Vercel + Render)
+- GitHub badges (for Node.js, React, MongoDB, etc.)
